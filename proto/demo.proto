@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "github.com/tomiok/grpc-test-wishlist/proto";
+
+
+service Casos {
+  rpc AddCaso (CasoRequest) returns (Reply) {}
+  rpc ListarCasos (Empty) returns (stream CasoReply) {}
+}
+
+message CasoRequest {
+  string name = 1;
+  string location = 2;
+  int32 age = 3;
+  string infected_type = 4;
+  string state = 5;
+}
+
+message Reply {
+  string message = 1;
+}
+
+message Empty {}
+
+message CasoReply {
+  string name = 1;
+  string location = 2;
+  int32 age = 3;
+  string infected_type = 4;
+  string state = 5;
+}
